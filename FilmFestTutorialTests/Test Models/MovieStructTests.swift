@@ -30,7 +30,7 @@ class MovieStructTests: XCTestCase {
         XCTAssertEqual(testMovie.title, "Generic Blockbuster") //check that our movie title is being set when we create a new movie, this assert lets us compare two expressions, and force check that the title of the object testMovie is "Generic Blockbuster", like how we have set it above
         
         //the test passes so our functional code works and correctly sets the movie title
-    }
+    } 
     
     //check that movies can have title AND optional release date
     func testInit_SetMovieTitleAndRelease(){
