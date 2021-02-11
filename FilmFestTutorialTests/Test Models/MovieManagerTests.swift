@@ -14,6 +14,11 @@ import XCTest
 class MovieManagerTests: XCTestCase {
     
     var sut: MovieManager! //var is a mutable variable, ! is a force unwrapped optional, which means that it should not be nil at all, we don't want the variable to be nil and we want to be initliazed in the set up function, this is just a var named MovieManager
+    
+    //create a few movies here so we can use them throughout the tests and don't have to keep declaring them
+    let scifiMovie = Movie (title: "Sci-fi")
+    let artHouseMovie = Movie (title: "Arthouse Drama")
+    let actionMovie = Movie (title: "Action")
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -49,6 +54,17 @@ class MovieManagerTests: XCTestCase {
         
         let movieQueried = sut.movieAtIndex(index: 0) //function will look for an actual index and have it be the movie value for movieQueried
         XCTAssertEqual(testMovie.title, movieQueried.title) //we want the movieQueried to be equal to the testMovie title 
+        
+    }
+    
+    // MARK: Checking off
+    func testCheckOffMovie_UpdatesMovieManagerCounts(){ //tests are getting more complicated, but we are trying our best to make a test handle 1 thing only
+        sut.addMovie(movie: Movie(title: "Action/Adventure")) //add a movie
+        sut.checkOffMovieAtIndex(index: 0)
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 0) //we want moviesToSeeCount to be equal to 0 since it is at 1 right now
+        
+        XCTAssertEqual(sut.moviesSeenCount, 1) //is 1. Treat each test like it is seperate and does not affect the other 
         
     }
 
