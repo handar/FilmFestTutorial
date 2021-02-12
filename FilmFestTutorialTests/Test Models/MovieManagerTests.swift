@@ -16,6 +16,7 @@ class MovieManagerTests: XCTestCase {
     var sut: MovieManager! //var is a mutable variable, ! is a force unwrapped optional, which means that it should not be nil at all, we don't want the variable to be nil and we want to be initliazed in the set up function, this is just a var named MovieManager
     
     //create a few movies here so we can use them throughout the tests and don't have to keep declaring them
+    //declaring them as constants and not initializing them using a set up method because we don't need these test movies to be invoked everytime a test runs, like we do in our MovieManager instance.
     let scifiMovie = Movie (title: "Sci-fi")
     let artHouseMovie = Movie (title: "Arthouse Drama")
     let actionMovie = Movie (title: "Action")
@@ -42,30 +43,43 @@ class MovieManagerTests: XCTestCase {
     
     // MARK: Add and Query
     func testAdd_MoviesToSee_ReturnsOne(){ //add a movie and make MoviesToSeeCount = 1
-        let testMovie = Movie(title: "Sci-Fi")
-        sut.addMovie(movie: testMovie) //function to add a new movie to MoviesToSee list
+        //let testMovie = Movie(title: "Sci-Fi")
+        sut.addMovie(movie: scifiMovie) //function to add a new movie to MoviesToSee list
         
         XCTAssertEqual(sut.moviesToSeeCount, 1)
     }
     
     func testQuery_ReturnsMovieAtIndex(){ //return a movie from any index
-        let testMovie = Movie(title: "Arthouse Drama")
-        sut.addMovie(movie: testMovie) //add testMovie to movie list
+        //let testMovie = Movie(title: "Arthouse Drama")
+        sut.addMovie(movie: artHouseMovie) //add testMovie to movie list
         
         let movieQueried = sut.movieAtIndex(index: 0) //function will look for an actual index and have it be the movie value for movieQueried
-        XCTAssertEqual(testMovie.title, movieQueried.title) //we want the movieQueried to be equal to the testMovie title 
+        XCTAssertEqual(artHouseMovie.title, movieQueried.title) //we want the movieQueried to be equal to the testMovie title
         
     }
     
     // MARK: Checking off
     func testCheckOffMovie_UpdatesMovieManagerCounts(){ //tests are getting more complicated, but we are trying our best to make a test handle 1 thing only
-        sut.addMovie(movie: Movie(title: "Action/Adventure")) //add a movie
+        sut.addMovie(movie: actionMovie) //add a movie
         sut.checkOffMovieAtIndex(index: 0)
         
         XCTAssertEqual(sut.moviesToSeeCount, 0) //we want moviesToSeeCount to be equal to 0 since it is at 1 right now
         
-        XCTAssertEqual(sut.moviesSeenCount, 1) //is 1. Treat each test like it is seperate and does not affect the other 
-        
+        XCTAssertEqual(sut.moviesSeenCount, 1) //is 1. Treat each test like it is seperate and does not affect the other
     }
+    
+    //check if you select or check off a movie, it's removed from the right array
+    func testCheckOffMovie_RemovesMovieFromArray(){
+        //add few movies to library
+        sut.addMovie(movie: scifiMovie)
+        sut.addMovie(movie: artHouseMovie)
+        
+        //check off movie at index 0, which is scifi
+        sut.checkOffMovieAtIndex(index: 0)
+        
+        //assert that when you remove the index 0 scifi movie, the artHouseMovie will be in index 0
+        XCTAssertEqual(sut.movieAtIndex(index: 0).title, artHouseMovie.title) //the title of the movie at index 0 is = to the title of artHouseMovie
+    }
+    
 
 }

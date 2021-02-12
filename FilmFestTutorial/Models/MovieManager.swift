@@ -20,13 +20,15 @@ class MovieManager {
     
     func movieAtIndex(index: Int) -> Movie { //the function will take in an index and return a Movie which will have a title and optional release date from Movie.swift
         //return Movie(title: "Teen Comedy") //return a default movie
-        return moviesToSeeArray[index] //return index that was passed in from from our parameter, this will return type Movie
+        return moviesToSeeArray[index] //return Movie that was passed in from from our parameter, this will return type Movie
     }
     
     func checkOffMovieAtIndex (index: Int){ //take in parameter index and not return anything
         guard index < moviesToSeeCount else {return} //tell guard what you want to be the case, if it is not, then just return early 
         moviesToSeeCount -= 1 //decrease count of movies you want to see
         moviesSeenCount += 1
+        
+        moviesToSeeArray.remove(at: index)
         
     }
 }
