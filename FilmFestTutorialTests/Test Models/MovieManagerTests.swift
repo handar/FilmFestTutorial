@@ -81,5 +81,13 @@ class MovieManagerTests: XCTestCase {
         XCTAssertEqual(sut.movieAtIndex(index: 0).title, artHouseMovie.title) //the title of the movie at index 0 is = to the title of artHouseMovie
     }
     
+    func testCheckOffMovie_ReturnsMovieAtIndex(){
+        //need an actual movie at index, so pass in scifi movie
+        sut.addMovie(movie: scifiMovie)
+        sut.checkOffMovieAtIndex(index: 0) //removes movie at index
+        
+        let movieQueried = sut.checkedOffMovieAtIndex(index: 0) //returns the movie you checked off
+        XCTAssertEqual(scifiMovie.title, movieQueried.title)
+    }
 
 }

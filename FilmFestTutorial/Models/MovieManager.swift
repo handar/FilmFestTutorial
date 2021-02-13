@@ -12,6 +12,7 @@ class MovieManager {
     var moviesSeenCount = 0
     
     private var moviesToSeeArray = [Movie]() //private array of type Movie
+    private var moviesSeenArray = [Movie]() //private array that keeps track of movies checked off or seen
     
     func addMovie(movie: Movie){ //function to take in a movie of type movie to add it to your list
         moviesToSeeCount += 1 //increment the count to 1
@@ -28,7 +29,12 @@ class MovieManager {
         moviesToSeeCount -= 1 //decrease count of movies you want to see
         moviesSeenCount += 1
         
-        moviesToSeeArray.remove(at: index)
+        let checkedMovie = moviesToSeeArray.remove(at: index)
+        moviesSeenArray.append(checkedMovie) //append the checked movie to the movies seen array 
         
+    }
+    
+    func checkedOffMovieAtIndex(index: Int) -> Movie {
+        return moviesSeenArray [index] //return the movie seen at the index 
     }
 }
