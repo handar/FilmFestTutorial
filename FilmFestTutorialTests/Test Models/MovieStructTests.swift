@@ -39,5 +39,33 @@ class MovieStructTests: XCTestCase {
         XCTAssertEqual(testMovie.title, "Romantic Comedy") //feed XCTASSERTEQUAL our new testMovie title
         XCTAssertEqual(testMovie.releaseDate, "1987") //check if release date is = too, no need to check if the release date is null because release date is optional 
     }
+    
+    //directly compare movie instances and their properties
+    func testEquatable_ReturnsTrue() {
+        //we want to compare two movies with the same title
+        let actionMovie1 = Movie(title: "Action")
+        let actionMovie2 = Movie(title: "Action")
+        
+        XCTAssertEqual(actionMovie1, actionMovie2)
+    }
+    
+    //check if two movies have similiar or dissimilar properties
+    func testEquatable_ReturnsNotEqualForDifferentTitles(){
+        let actionMovie1 = Movie(title: "Action")
+        let actionMovie2 = Movie(title: "Adventure")
+        
+        XCTAssertNotEqual(actionMovie1, actionMovie2)
+    }
+    
+    func testEquatable_ReturnsNotEqualForDifferentReleaseDates(){
+        let actionMovie1 = Movie(title: "Action", releaseDate: "1999")
+        let actionMovie2 = Movie(title: "Adventure", releaseDate: "2018")
+        
+        XCTAssertNotEqual(actionMovie1, actionMovie2)
+    }
+    
+    //check if release dates are not equal
+    //these tests basically just say ok test the function in your real code and make sure it does what it is supposed to do
+    
 
 }

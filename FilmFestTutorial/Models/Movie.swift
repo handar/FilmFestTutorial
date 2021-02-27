@@ -10,7 +10,7 @@ import Foundation
 //create an empty struct
 //bare minimum code to make our tests pass
 //functional code for func testInit_MovieWithTitle()
-struct Movie {
+struct Movie: Equatable {
     let title: String
     let releaseDate: String? //string optional (?) since not all movies have a release date
     
@@ -21,3 +21,19 @@ struct Movie {
         self.releaseDate = releaseDate
     }
 }
+
+//create this for the func testEquatable_ReturnsTrue() and the func testEquatable_ReturnsNotEqualForDifferentTitles()
+func==(lhs: Movie, rhs: Movie) -> Bool {
+    //return true if you return just true, any equatable function will just return true
+    
+    if lhs.title != rhs.title {
+        return false
+    }
+    
+    if lhs.releaseDate != rhs.releaseDate {
+        return false
+    }
+    return true 
+}
+
+

@@ -8,14 +8,16 @@
 import Foundation
 
 class MovieManager {
-    var moviesToSeeCount = 0 //let is constant variable, so change the type to var, changing this shows how fluid test driven development can be. Don't overthink the applicatin logic too far ahead of what you need in the present. Your code will be cleaner and less error prone.
-    var moviesSeenCount = 0
+    var moviesToSeeCount: Int {return moviesToSeeArray.count} //let is constant variable, so change the type to var, changing this shows how fluid test driven development can be. Don't overthink the application logic too far ahead of what you need in the present. Your code will be cleaner and less error prone.
+    
+        //changing it to var of type int and returning the count of moviesToSeeArray to make it better, it is not good to hardcode these variables to be 0
+    var moviesSeenCount: Int {return moviesSeenArray.count}
     
     private var moviesToSeeArray = [Movie]() //private array of type Movie
     private var moviesSeenArray = [Movie]() //private array that keeps track of movies checked off or seen
     
     func addMovie(movie: Movie){ //function to take in a movie of type movie to add it to your list
-        moviesToSeeCount += 1 //increment the count to 1
+        //moviesToSeeCount += 1 //increment the count to 1
         moviesToSeeArray.append(movie) //append that movie you want to add to the array
     }
     
@@ -26,8 +28,8 @@ class MovieManager {
     
     func checkOffMovieAtIndex (index: Int){ //take in parameter index and not return anything
         guard index < moviesToSeeCount else {return} //tell guard what you want to be the case, if it is not, then just return early 
-        moviesToSeeCount -= 1 //decrease count of movies you want to see
-        moviesSeenCount += 1
+        //moviesToSeeCount -= 1 //decrease count of movies you want to see
+        //moviesSeenCount += 1
         
         let checkedMovie = moviesToSeeArray.remove(at: index)
         moviesSeenArray.append(checkedMovie) //append the checked movie to the movies seen array 
