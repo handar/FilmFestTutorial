@@ -19,6 +19,7 @@ class MovieStructTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    // MARK: Initialization
     //movie title test
     func testInit_MovieWithTitle(){ //good practice to be descriptive about what exactly the test function is actually targeting. We are testing initializer of movieStruct, and expecting it to return a movie with a title
         let testMovie = Movie(title: "Generic Blockbuster") //if you do not implement an actual Movie struct, the build will fail, so you need to write the actual implementation code to make this a passing test
@@ -40,6 +41,7 @@ class MovieStructTests: XCTestCase {
         XCTAssertEqual(testMovie.releaseDate, "1987") //check if release date is = too, no need to check if the release date is null because release date is optional 
     }
     
+    // MARK: Equatable
     //directly compare movie instances and their properties
     func testEquatable_ReturnsTrue() {
         //we want to compare two movies with the same title

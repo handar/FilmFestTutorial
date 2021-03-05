@@ -89,5 +89,36 @@ class MovieManagerTests: XCTestCase {
         let movieQueried = sut.checkedOffMovieAtIndex(index: 0) //returns the movie you checked off
         XCTAssertEqual(scifiMovie.title, movieQueried.title)
     }
+    
+    //clear movie arrays
+    //MARK: Clearing and resetting
+    func testClearArrays_ReturnsArrayCountsOfZero(){
+        sut.addMovie(movie: scifiMovie)
+        sut.addMovie(movie: actionMovie)
+        
+        sut.checkOffMovieAtIndex(index: 0) //check off scifiMovie
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 1)
+        XCTAssertEqual(sut.moviesSeenCount, 1)
+        
+        sut.clearArrays()
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 0) //you want moves to see count to be 0
+        XCTAssertEqual(sut.moviesSeenCount, 0)
+        
+    }
+    
+    //check that we never have a duplicate movie in our list cuz that's weird
+    //MARK: Duplicates
+    func testDeuplicateMovies_ShouldNotBeAddedToArray(){
+        sut.addMovie(movie: scifiMovie)
+        sut.addMovie(movie: scifiMovie)
+        
+        XCTAssertNotEqual(sut.moviesToSeeCount, 1) //assert that movies to see count is 1, not 2, because scifiMovie has been added twice
+        
+    }
+    
+  
+    
 
 }

@@ -17,8 +17,10 @@ class MovieManager {
     private var moviesSeenArray = [Movie]() //private array that keeps track of movies checked off or seen
     
     func addMovie(movie: Movie){ //function to take in a movie of type movie to add it to your list
-        //moviesToSeeCount += 1 //increment the count to 1
-        moviesToSeeArray.append(movie) //append that movie you want to add to the array
+        if !moviesToSeeArray.contains(movie) { //if moviesToSeeArray does NOT contain the movie yet, then add it to the array
+            //moviesToSeeCount += 1 //increment the count to 1
+            moviesToSeeArray.append(movie) //append that movie you want to add to the array
+        }
     }
     
     func movieAtIndex(index: Int) -> Movie { //the function will take in an index and return a Movie which will have a title and optional release date from Movie.swift
@@ -38,5 +40,10 @@ class MovieManager {
     
     func checkedOffMovieAtIndex(index: Int) -> Movie {
         return moviesSeenArray [index] //return the movie seen at the index 
+    }
+    
+    func clearArrays(){
+        moviesToSeeArray.removeAll()
+        moviesSeenArray.removeAll()
     }
 }
