@@ -114,7 +114,7 @@ class MovieManagerTests: XCTestCase {
         sut.addMovie(movie: scifiMovie)
         sut.addMovie(movie: scifiMovie)
         
-        XCTAssertNotEqual(sut.moviesToSeeCount, 1) //assert that movies to see count is 1, not 2, because scifiMovie has been added twice
+        XCTAssertEqual(sut.moviesToSeeCount, 1) //assert that movies to see count is 1, not 2, because scifiMovie has been added twice
         
     }
     
