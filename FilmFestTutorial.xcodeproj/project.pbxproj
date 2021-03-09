@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E4D3E7025F6F4DC00AD0524 /* LibraryViewContollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D3E6F25F6F4DC00AD0524 /* LibraryViewContollerTests.swift */; };
 		1EDFF41225BBAB910078E1E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDFF41125BBAB910078E1E7 /* AppDelegate.swift */; };
 		1EDFF41425BBAB910078E1E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDFF41325BBAB910078E1E7 /* SceneDelegate.swift */; };
-		1EDFF41625BBAB910078E1E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDFF41525BBAB910078E1E7 /* ViewController.swift */; };
+		1EDFF41625BBAB910078E1E7 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDFF41525BBAB910078E1E7 /* LibraryViewController.swift */; };
 		1EDFF41925BBAB910078E1E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDFF41725BBAB910078E1E7 /* Main.storyboard */; };
 		1EDFF41B25BBAB950078E1E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EDFF41A25BBAB950078E1E7 /* Assets.xcassets */; };
 		1EDFF41E25BBAB950078E1E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDFF41C25BBAB950078E1E7 /* LaunchScreen.storyboard */; };
@@ -39,10 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E4D3E6F25F6F4DC00AD0524 /* LibraryViewContollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewContollerTests.swift; sourceTree = "<group>"; };
 		1EDFF40E25BBAB910078E1E7 /* FilmFestTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmFestTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDFF41125BBAB910078E1E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EDFF41325BBAB910078E1E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1EDFF41525BBAB910078E1E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EDFF41525BBAB910078E1E7 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		1EDFF41825BBAB910078E1E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EDFF41A25BBAB950078E1E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EDFF41D25BBAB950078E1E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 		1EDFF44F25C23D830078E1E7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1EDFF41525BBAB910078E1E7 /* ViewController.swift */,
+				1EDFF41525BBAB910078E1E7 /* LibraryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +170,7 @@
 		1EDFF45225C23DCA0078E1E7 /* Test Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E4D3E6F25F6F4DC00AD0524 /* LibraryViewContollerTests.swift */,
 			);
 			path = "Test Controllers";
 			sourceTree = "<group>";
@@ -302,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EDFF41625BBAB910078E1E7 /* ViewController.swift in Sources */,
+				1EDFF41625BBAB910078E1E7 /* LibraryViewController.swift in Sources */,
 				1EDFF41225BBAB910078E1E7 /* AppDelegate.swift in Sources */,
 				1EDFF45C25C23F1C0078E1E7 /* MovieManager.swift in Sources */,
 				1EDFF44A25BBAF740078E1E7 /* Movie.swift in Sources */,
@@ -317,6 +320,7 @@
 				1EDFF45425C23E2A0078E1E7 /* MovieManagerTests.swift in Sources */,
 				1EDFF42925BBAB950078E1E7 /* FilmFestTutorialTests.swift in Sources */,
 				1EDFF44525BBAD710078E1E7 /* MovieStructTests.swift in Sources */,
+				1E4D3E7025F6F4DC00AD0524 /* LibraryViewContollerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
