@@ -5,6 +5,8 @@
 //  Created by hadia.andar on 3/8/21.
 //
 
+
+
 import XCTest
 @testable import FilmFestTutorial
 
@@ -35,16 +37,31 @@ class LibraryViewContollerTests: XCTestCase {
    //MARK: Nil Checks
     func testLibaryVC_TableViewShouldNotBeNil(){
         //assert that tableview is not nil
-        XCTAssertNotNil(sut.libraryTableView)
+        XCTAssertNotNil(sut.libraryTableViewReal)
     }
     
     //MARK: Data Source
     func testDataSource_ViewDidLoad_SetsTableViewDataSource(){
         //assert that data source is not nil
-        XCTAssertNotNil(sut.libraryTableView.dataSource)
-        
-        //assert that data source is of type MovieLibraryDataService, which is going to be our decoupled class
-        XCTAssertTrue(sut.libraryTableView)
+        XCTAssertNotNil(sut.libraryTableViewReal.dataSource)
+    
+        //assert that it is of type MovieLibraryDataService, decoupled class
+        XCTAssertTrue(sut.libraryTableViewReal.dataSource is MovieLibraryDataService)
+    }
+    
+    //Need to make sure that our data service (data source and delegate) are set to the same data service object.
+    //TDD Conditions you to think ahead, even if something in your code seems “obvious”, it is best to test it
+    
+    //MARK: Delegate
+    func testDelegate_ViewDidLoad_SetsTableViewDelegate(){
+        XCTAssertNotNil(sut.libraryTableViewReal.delegate) //the delegate is not nil
+        XCTAssertTrue(sut.libraryTableViewReal.delegate is MovieLibraryDataService) //delegate is of type MovieLibraryDataService
     }
 
+    //MARK: Data Service Assumptions
+    func testDataService_ViewDidLoad_SingleDataServiceObject(){
+        XCTAssertEqual(sut.libraryTableViewReal.dataSource as! MovieLibraryDataService, sut.libraryTableViewReal.delegate as! MovieLibraryDataService)
+    }
 }
+
+ 
